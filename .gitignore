@@ -5,3 +5,5 @@ dist
 .DS_Store
 coverage
 *.log
+
+/src/generated/prisma
