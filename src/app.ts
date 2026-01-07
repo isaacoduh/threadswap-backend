@@ -8,6 +8,8 @@ import {notFoundHandler, errorHandler} from "@/middleware/error.middleware";
 import {healthRouter} from "@/routes/health.routes";
 import {readyRouter} from "@/routes/ready.routes";
 
+import {authRouter} from "@/modules/auth/routes/auth.routes"
+
 export function createApp() {
     const app = express()
     // Trust proxy if running behind load balancers / reverse proxies (common in prod)
@@ -40,7 +42,8 @@ export function createApp() {
 
     // routes
     app.use("/health", healthRouter);
-    app.use("/health/ready", readyRouter)
+    app.use("/health/ready", readyRouter);
+    app.use("/auth", authRouter);
 
     // 404 + error handler
     app.use(notFoundHandler)
