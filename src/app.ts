@@ -9,6 +9,7 @@ import {healthRouter} from "@/routes/health.routes";
 import {readyRouter} from "@/routes/ready.routes";
 
 import {authRouter} from "@/modules/auth/routes/auth.routes"
+import { uploadsRouter } from "./modules/uploads/routes/upload.routes"
 
 export function createApp() {
     const app = express()
@@ -44,6 +45,7 @@ export function createApp() {
     app.use("/health", healthRouter);
     app.use("/health/ready", readyRouter);
     app.use("/auth", authRouter);
+    app.use("/uploads", uploadsRouter);
 
     // 404 + error handler
     app.use(notFoundHandler)
