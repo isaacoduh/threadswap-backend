@@ -1,18 +1,17 @@
-import "dotenv/config"
-import {createApp} from "@/app";
+import "dotenv/config";
+import { createApp } from "@/app";
+import { ensureRedisSessionConnected } from "@/common/redis/redis.session.client";
 
-const port = Number(process.env.PORT ?? 3000);
+const port = Number(process.env.PORT ?? 8080);
 
-async function main () {
-    const app = createApp();
+async function main() {
+  await ensureRedisSessionConnected();
 
-    app.listen(port, () => {
-        // Keep it simple—wire a real logger later
-        console.log(`[backend-api] listening on :${port}`);
-    });
+  const app = createApp();
+  app.listen(port, () => console.log(`[backend-api] listening on :${port}`));
 }
 
 main().catch((err) => {
-    console.error("[backend-api] failed to start", err);
-    process.exit(1);
+  console.error("[backend-api] failed to start", err);
+  process.exit(1);
 });

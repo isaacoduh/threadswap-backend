@@ -4,6 +4,7 @@ import helmet from "helmet"
 import compression from "compression"
 import morgan from "morgan"
 import {notFoundHandler, errorHandler} from "@/middleware/error.middleware";
+import { sessionMiddleware } from "./middleware/session.middleware"
 
 import {healthRouter} from "@/routes/health.routes";
 import {readyRouter} from "@/routes/ready.routes";
@@ -33,6 +34,8 @@ export function createApp() {
 
     app.use(express.json({limit: "10mb"}));
     app.use(express.urlencoded({ extended: true }));
+
+    app.use(sessionMiddleware());
 
     // compression
     app.use(compression());

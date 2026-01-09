@@ -17,6 +17,7 @@
     "@types/compression": "^1.8.1",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
+    "@types/express-session": "^1.18.2",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/morgan": "^1.9.10",
     "@types/multer": "^2.0.0",
@@ -36,13 +37,17 @@
     "@prisma/client": "^7.2.0",
     "bcrypt": "^6.0.0",
     "compression": "^1.8.1",
+    "connect-redis": "^9.0.0",
     "cors": "^2.8.5",
     "express": "^5.2.1",
+    "express-session": "^1.18.2",
     "helmet": "^8.1.0",
+    "ioredis": "^5.9.1",
     "jsonwebtoken": "^9.0.3",
     "morgan": "^1.10.1",
     "multer": "^2.0.2",
     "pg": "^8.16.3",
-    "prisma": "^7.2.0"
+    "prisma": "^7.2.0",
+    "redis": "^5.10.0"
   }
 }
