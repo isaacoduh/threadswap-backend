@@ -1,5 +1,5 @@
 import type {NextFunction, Request, Response} from "express";
-import {verifyAccessToken} from "@modules/auth/services/token.service.";
+import {verifyAccessToken} from "@/modules/auth/services/token.service";
 
 export type AuthenticatedRequest = Request & {
     user?: {id: string; email: string};

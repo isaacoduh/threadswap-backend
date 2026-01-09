@@ -1,6 +1,6 @@
 import {prisma} from "@db/prisma";
 import {hashPassword, verifyPassword} from "@modules/auth/services/password.service";
-import {signAcessToken} from "@modules/auth/services/token.service.";
+import {signAcessToken} from "@/modules/auth/services/token.service";
 
 export async function register(emailRaw: string, password: string) {
     const email = emailRaw.trim().toLowerCase();

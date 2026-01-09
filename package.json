@@ -24,6 +24,8 @@
     "@types/node": "^22.19.3",
     "nodemon": "^3.1.11",
     "rimraf": "^6.0.0",
+    "socket-client": "^1.0.0",
+    "socket.io-client": "^4.8.3",
     "ts-node": "^10.9.2",
     "tsc-alias": "^1.8.16",
     "tsconfig-paths": "^4.2.0",
@@ -48,6 +50,7 @@
     "multer": "^2.0.2",
     "pg": "^8.16.3",
     "prisma": "^7.2.0",
-    "redis": "^5.10.0"
+    "redis": "^5.10.0",
+    "socket.io": "^4.8.3"
   }
 }
