@@ -3,6 +3,7 @@
 > A peer-to-peer fashion marketplace built with NodeJs/Typescript backend and Next.js 14 frontend
 
 ## Table of Cotnents
+
 - [Project Overview](#project-overview)
 - [Tech Stack](#tech-stack)
 - [Project Goals](#project-goals)
@@ -16,10 +17,12 @@
 ---
 
 ## 🎯 Project Overview
-**ThreadSwap** is a peer to peer fashion marketplace that enables users to buy, sell, and trade preloved clothing items. 
+
+**ThreadSwap** is a peer to peer fashion marketplace that enables users to buy, sell, and trade preloved clothing items.
 The platform focuses on secure transactions, real-time messaging, and seamless payment processing.
 
 ### Core Features
+
 - **User Authentication** - JWT-based auth with email verification.
 - **Listing Management** - Create, edit, and browse fashion listings with image uploads
 - **Search & Discovery** - Filter by category, size, brand, price, condition
@@ -31,6 +34,7 @@ The platform focuses on secure transactions, real-time messaging, and seamless p
 - **User Profiles** - Track sales, purchases and ratings.
 
 ### Target Metrics
+
 - **Week 1**: 100 Daily Active Users (DAU)
 - **Week 4**: 500 DAU
 - **Week 12**: 2000 DAU
@@ -41,6 +45,7 @@ The platform focuses on secure transactions, real-time messaging, and seamless p
 ## 🛠 Tech Stack
 
 ### Backend (Node.js + Typescript)
+
 ```
 - Runtime: Node.js 20+ LTS
 - Language: Typescript (strict mode)
@@ -56,6 +61,7 @@ The platform focuses on secure transactions, real-time messaging, and seamless p
 ```
 
 ### Frontend (Next.js 14 + Typescript)
+
 ```
 - Framework: Next.js 14 (App Router)
 - Language: TypeScript
@@ -68,6 +74,7 @@ The platform focuses on secure transactions, real-time messaging, and seamless p
 ```
 
 ### Infrastructure
+
 ```
 - Containerization: Docker + Docker Compose
 - CI/CD: GitHub Actions
@@ -83,6 +90,7 @@ The platform focuses on secure transactions, real-time messaging, and seamless p
 ## 🏗 Architecture
 
 ### High-Level Architecture
+
 ```
 ┌─────────────────┐         ┌─────────────────┐
 │   Next.js 14    │ ◄─────► │   Node.js API   │
@@ -106,6 +114,7 @@ The platform focuses on secure transactions, real-time messaging, and seamless p
 ```
 
 ### Database Schema (Key Tables)
+
 ```
 users
 ├── id (uuid)
@@ -164,31 +173,37 @@ reviews
 ---
 
 ## 🗺 Development Roadmap
+
 ### Phase 1: Foundation (Weeks 1-4)
+
 - ✅ Project setup and infrastructure
 - ✅ Database schema and models
 - ✅ Authentication system
 - ✅ Basic listing CRUD operations
 
 ### Phase 2: Core Features (Weeks 5-8)
+
 - ✅ Search and filtering
 - ✅ Real-time messaging system
 - ✅ Offer and negotiation flow
 - ✅ Image upload and management
 
 ### Phase 3: Payments & Transactions (Weeks 9-11)
+
 - ✅ Stripe Connect integration
 - ✅ Escrow payment flow
 - ✅ Shipping label generation
 - ✅ Order tracking
 
 ### Phase 4: Trust & Safety (Weeks 12-13)
+
 - ✅ Review and rating system
 - ✅ User verification
 - ✅ Content moderation
 - ✅ Dispute resolution
 
 ### Phase 5: Polish & Launch (Weeks 14-16)
+
 - ✅ UI/UX refinements
 - ✅ Performance optimization
 - ✅ Security hardening
@@ -201,6 +216,7 @@ reviews
 ## 🚀 Setup Guide
 
 ### Prerequisites
+
 ```bash
 - Node.js 20+ LTS
 - PostgreSQL 14+
@@ -212,13 +228,16 @@ reviews
 ```
 
 ### Local Development Setup
+
 #### 1. Clone Repository
+
 ```bash
 git clone https://github.com/#####/threadswap.git
 cd threadswap
 ```
 
 #### 2. Backend Setup
+
 ```bash
 cd backend
 npm install
@@ -246,6 +265,7 @@ npm run dev
 ```
 
 #### 3. Frontend Setup
+
 ```bash
 cd frontend
 npm install
@@ -263,6 +283,7 @@ npm run dev
 ```
 
 #### 4. Docker Setup (Alternative)
+
 ```bash
 # From project root
 docker-compose up -d
@@ -275,6 +296,7 @@ docker-compose up -d
 ```
 
 ### Testing Setup
+
 ```bash
 # Backend tests
 cd backend
@@ -294,7 +316,9 @@ npm run test:coverage
 ## 📦 Epic Breakdown
 
 ### EPIC 1: Project Setup & Infrastructure (Week 1)
+
 **Backend:**
+
 - Initialize Node.js + TypeScript project
 - Configure PostgreSQL database
 - Set up Express server with middleware
@@ -306,6 +330,7 @@ npm run test:coverage
 - Set up logging and error handling
 
 **Frontend:**
+
 - Initialize Next.js 14 with TypeScript
 - Configure Tailwind CSS
 - Set up React Query + Zustand
@@ -314,12 +339,14 @@ npm run test:coverage
 - Set up Socket.io client
 
 **DevOps:**
+
 - Docker and Docker Compose setup
 - CI/CD pipeline (GitHub Actions)
 - Database migration strategy
 - Health check endpoints
 
 **Deliverables:**
+
 - Working dev environment
 - Docker containers running
 - Basic API responding to health checks
@@ -328,7 +355,9 @@ npm run test:coverage
 ---
 
 ### EPIC 2: Database Schema & Models (Week 1-2)
+
 **Tasks:**
+
 - Design complete database schema
 - Create Prisma schema or TypeORM entities
 - Implement User model with password hashing
@@ -341,6 +370,7 @@ npm run test:coverage
 - Document schema with ER diagrams
 
 **Deliverables:**
+
 - Complete database schema
 - All models with TypeScript types
 - Migration files
@@ -349,7 +379,9 @@ npm run test:coverage
 ---
 
 ### EPIC 3: Authentication System (Week 2)
+
 **Backend:**
+
 - User registration endpoint with email validation
 - Login endpoint with JWT generation
 - Password reset flow (email + token)
@@ -359,6 +391,7 @@ npm run test:coverage
 - Rate limiting on auth endpoints
 
 **Frontend:**
+
 - Registration form with validation
 - Login form
 - Password reset flow
@@ -368,6 +401,7 @@ npm run test:coverage
 - Auto-redirect on auth status
 
 **Deliverables:**
+
 - Complete auth system
 - Working registration/login flow
 - Password reset functionality
@@ -376,7 +410,9 @@ npm run test:coverage
 ---
 
 ### EPIC 4: Listing Management (Week 3-4)
+
 **Backend:**
+
 - Create listing endpoint with image upload
 - Update listing endpoint
 - Delete listing endpoint
@@ -387,6 +423,7 @@ npm run test:coverage
 - Listing status management
 
 **Frontend:**
+
 - Create listing form (multi-step)
 - Image upload component with preview
 - Listing detail page
@@ -397,6 +434,7 @@ npm run test:coverage
 - Draft saving functionality
 
 **Deliverables:**
+
 - Full listing CRUD functionality
 - Image upload working with S3
 - Responsive listing cards
@@ -405,7 +443,9 @@ npm run test:coverage
 ---
 
 ### EPIC 5: Search & Discovery (Week 4-5)
+
 **Backend:**
+
 - Search endpoint with filters (category, size, brand, price, condition)
 - Pagination and sorting
 - Full-text search on title/description
@@ -414,6 +454,7 @@ npm run test:coverage
 - Database indexes for search performance
 
 **Frontend:**
+
 - Search bar with autocomplete
 - Filter sidebar (category, size, brand, price range, condition)
 - Sort options (newest, price low-high, price high-low)
@@ -423,6 +464,7 @@ npm run test:coverage
 - Loading skeletons
 
 **Deliverables:**
+
 - Fast search functionality
 - Comprehensive filtering
 - Responsive results grid
@@ -431,7 +473,9 @@ npm run test:coverage
 ---
 
 ### EPIC 6: Real-time Messaging (Week 5-6)
+
 **Backend:**
+
 - Socket.io server setup with authentication
 - Create conversation endpoint
 - Send message endpoint (REST fallback)
@@ -442,6 +486,7 @@ npm run test:coverage
 - Message notifications
 
 **Frontend:**
+
 - Chat interface component
 - Conversation list
 - Message bubbles with timestamps
@@ -452,6 +497,7 @@ npm run test:coverage
 - Mobile-responsive chat UI
 
 **Deliverables:**
+
 - Working real-time chat
 - Conversation history
 - Read receipts
@@ -460,7 +506,9 @@ npm run test:coverage
 ---
 
 ### EPIC 7: Offer & Negotiation System (Week 6-7)
+
 **Backend:**
+
 - Create offer endpoint
 - Accept/reject offer endpoint
 - Counter-offer endpoint
@@ -470,6 +518,7 @@ npm run test:coverage
 - Offer notifications
 
 **Frontend:**
+
 - Make offer modal
 - Offer list view
 - Accept/reject/counter offer UI
@@ -478,6 +527,7 @@ npm run test:coverage
 - Notification for new offers
 
 **Deliverables:**
+
 - Complete offer flow
 - Negotiation interface
 - Offer status tracking
@@ -485,7 +535,9 @@ npm run test:coverage
 ---
 
 ### EPIC 8: Payment System (Stripe Connect) (Week 7-9)
+
 **Backend:**
+
 - Stripe Connect onboarding flow
 - Create payment intent endpoint
 - Webhook handler for payment events
@@ -496,6 +548,7 @@ npm run test:coverage
 - Payout management
 
 **Frontend:**
+
 - Stripe Connect onboarding UI
 - Payment form with Stripe Elements
 - Order confirmation page
@@ -504,6 +557,7 @@ npm run test:coverage
 - Transaction history
 
 **Deliverables:**
+
 - Stripe Connect fully integrated
 - Secure payment processing
 - Escrow system working
@@ -512,7 +566,9 @@ npm run test:coverage
 ---
 
 ### EPIC 9: Shipping Integration (Week 9-10)
+
 **Backend:**
+
 - Shippo API integration
 - Create shipping label endpoint
 - Get shipping rates endpoint
@@ -521,6 +577,7 @@ npm run test:coverage
 - Shipping address validation
 
 **Frontend:**
+
 - Shipping address form
 - Shipping options selector
 - Label download/print
@@ -529,6 +586,7 @@ npm run test:coverage
 - Shipping cost calculator
 
 **Deliverables:**
+
 - Shippo integration complete
 - Label generation working
 - Tracking updates in real-time
@@ -536,7 +594,9 @@ npm run test:coverage
 ---
 
 ### EPIC 10: Reviews & Ratings (Week 10-11)
+
 **Backend:**
+
 - Create review endpoint (after purchase)
 - Get reviews for user endpoint
 - Get reviews for transaction endpoint
@@ -545,6 +605,7 @@ npm run test:coverage
 - Prevent duplicate reviews
 
 **Frontend:**
+
 - Review form modal
 - Star rating component
 - Review display on profiles
@@ -552,6 +613,7 @@ npm run test:coverage
 - Report review functionality
 
 **Deliverables:**
+
 - Working review system
 - Ratings visible on profiles
 - Review moderation tools
@@ -559,7 +621,9 @@ npm run test:coverage
 ---
 
 ### EPIC 11: User Profiles (Week 11-12)
+
 **Backend:**
+
 - Get user profile endpoint
 - Update profile endpoint
 - Upload avatar endpoint
@@ -568,6 +632,7 @@ npm run test:coverage
 - User statistics (sales, purchases, rating)
 
 **Frontend:**
+
 - Public profile page
 - Edit profile page
 - Avatar upload component
@@ -577,6 +642,7 @@ npm run test:coverage
 - Follow/favorite users (optional)
 
 **Deliverables:**
+
 - Complete profile system
 - Profile editing
 - User statistics
@@ -584,7 +650,9 @@ npm run test:coverage
 ---
 
 ### EPIC 12: Notifications (Week 12)
+
 **Backend:**
+
 - Notification model and endpoints
 - Email notification service
 - In-app notification system
@@ -593,6 +661,7 @@ npm run test:coverage
 - Notification templates
 
 **Frontend:**
+
 - Notification bell icon with badge
 - Notification dropdown
 - Notification preferences page
@@ -600,6 +669,7 @@ npm run test:coverage
 - Email notification settings
 
 **Deliverables:**
+
 - Real-time notifications
 - Email notifications
 - Notification center
@@ -607,7 +677,9 @@ npm run test:coverage
 ---
 
 ### EPIC 13: Admin & Moderation (Week 13)
+
 **Backend:**
+
 - Admin authentication
 - User management endpoints
 - Listing moderation endpoints
@@ -616,6 +688,7 @@ npm run test:coverage
 - Ban/suspend user functionality
 
 **Frontend:**
+
 - Admin dashboard
 - User management interface
 - Listing moderation queue
@@ -624,6 +697,7 @@ npm run test:coverage
 - Moderation actions
 
 **Deliverables:**
+
 - Admin dashboard
 - Content moderation tools
 - User management
@@ -631,7 +705,9 @@ npm run test:coverage
 ---
 
 ### EPIC 14: UI/UX Polish (Week 14)
+
 **Frontend:**
+
 - Consistent design system
 - Smooth animations and transitions
 - Loading states and skeletons
@@ -643,6 +719,7 @@ npm run test:coverage
 - Performance optimization
 
 **Deliverables:**
+
 - Polished UI/UX
 - Smooth interactions
 - Mobile-friendly
@@ -651,7 +728,9 @@ npm run test:coverage
 ---
 
 ### EPIC 15: Security Hardening (Week 14-15)
+
 **Backend:**
+
 - Rate limiting on all endpoints
 - Input validation and sanitization
 - SQL injection prevention
@@ -662,6 +741,7 @@ npm run test:coverage
 - Penetration testing
 
 **Frontend:**
+
 - Content Security Policy
 - XSS protection
 - Secure cookie handling
@@ -669,6 +749,7 @@ npm run test:coverage
 - HTTPS enforcement
 
 **Deliverables:**
+
 - Security audit passed
 - All vulnerabilities patched
 - Security best practices implemented
@@ -676,7 +757,9 @@ npm run test:coverage
 ---
 
 ### EPIC 16: Testing & QA (Week 15)
+
 **Backend:**
+
 - Unit tests (>80% coverage)
 - Integration tests
 - API endpoint tests
@@ -685,6 +768,7 @@ npm run test:coverage
 - Payment flow tests
 
 **Frontend:**
+
 - Component tests
 - Integration tests
 - E2E tests (Playwright/Cypress)
@@ -692,14 +776,17 @@ npm run test:coverage
 - Cross-browser testing
 
 **Deliverables:**
-- >80% test coverage
+
+- > 80% test coverage
 - E2E tests passing
 - Bug-free critical paths
 
 ---
 
 ### EPIC 17: Launch Preparation (Week 16)
+
 **Tasks:**
+
 - Production environment setup
 - Database migration to production
 - SSL certificate setup
@@ -712,6 +799,7 @@ npm run test:coverage
 - Launch checklist
 
 **Deliverables:**
+
 - Production environment ready
 - All services deployed
 - Monitoring in place
@@ -720,7 +808,9 @@ npm run test:coverage
 ---
 
 ### EPIC 18: Post-Launch Iteration (Week 17+)
+
 **Tasks:**
+
 - Monitor user feedback
 - Track analytics and metrics
 - Bug fixes and hotfixes
@@ -731,6 +821,7 @@ npm run test:coverage
 - User retention strategies
 
 **Deliverables:**
+
 - Stable production app
 - Metrics tracking
 - Continuous improvement
@@ -740,36 +831,44 @@ npm run test:coverage
 ## 📅 Timeline & Milestones
 
 ### Week 1-2: Foundation
+
 - ✅ Project setup complete
 - ✅ Database schema implemented
 - ✅ Authentication working
 
 ### Week 3-4: Core Features
+
 - ✅ Listings CRUD complete
 - ✅ Search and filtering working
 
 ### Week 5-6: Communication
+
 - ✅ Real-time messaging live
 - ✅ Offer system complete
 
 ### Week 7-9: Payments
+
 - ✅ Stripe integration complete
 - ✅ Payment flow tested
 
 ### Week 10-11: Trust Systems
+
 - ✅ Reviews and ratings live
 - ✅ User profiles complete
 
 ### Week 12-13: Administration
+
 - ✅ Notifications working
 - ✅ Admin dashboard live
 
 ### Week 14-15: Launch Prep
+
 - ✅ UI polished
 - ✅ Security hardened
 - ✅ Testing complete
 
 ### Week 16: Launch
+
 - ✅ Production deployment
 - ✅ Monitoring active
 - ✅ Launch announcement
@@ -779,26 +878,30 @@ npm run test:coverage
 ## 📊 Success Metrics
 
 ### User Metrics
+
 - **DAU (Daily Active Users)**
-    - Week 1: 100
-    - Week 4: 500
-    - Week 12: 2,000
+  - Week 1: 100
+  - Week 4: 500
+  - Week 12: 2,000
 
 - **MAU (Monthly Active Users)**
-    - Month 1: 500
-    - Month 3: 5,000
+  - Month 1: 500
+  - Month 3: 5,000
 
 ### Transaction Metrics
+
 - **GMV (Gross Merchandise Value)**: Track total transaction volume
 - **Average Order Value**: Target £30-50
 - **Conversion Rate**: 5-10% (visitors → buyers)
 
 ### Platform Health
+
 - **Response Time**: <200ms (p95)
 - **Uptime**: 99.9%
 - **Error Rate**: <0.1%
 
 ### Business Metrics
+
 - **Platform Fee Revenue**: 8% of GMV
 - **User Retention**: 30-day retention >40%
 - **Time to First Transaction**: <7 days
@@ -808,18 +911,21 @@ npm run test:coverage
 ## 🔗 Important Links
 
 ### Documentation
+
 - [API Documentation](./docs/API.md)
 - [Database Schema](./docs/DATABASE.md)
 - [Deployment Guide](./docs/DEPLOYMENT.md)
 - [Contributing Guide](./CONTRIBUTING.md)
 
 ### External Services
+
 - [Stripe Dashboard](https://dashboard.stripe.com)
 - [AWS Console](https://console.aws.amazon.com)
 - [Shippo Dashboard](https://goshippo.com)
 - [Sentry Dashboard](https://sentry.io)
 
 ### Development
+
 - [GitHub Repository](https://github.com/yourusername/threadswap)
 - [Trello Board](https://trello.com/your-board)
 - [Figma Designs](https://figma.com/your-designs)
@@ -829,6 +935,7 @@ npm run test:coverage
 ## 👥 Team
 
 **Isaac** - Full Stack Developer
+
 - Backend: Node.js/TypeScript, Express, PostgreSQL
 - Frontend: Next.js 14, TypeScript, React
 - DevOps: Docker, AWS, CI/CD
