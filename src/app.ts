@@ -12,6 +12,9 @@ import {readyRouter} from "@/routes/ready.routes";
 import {authRouter} from "@/modules/auth/routes/auth.routes"
 import { uploadsRouter } from "./modules/uploads/routes/upload.routes"
 
+import { enqueueExampleJob } from "@/modules/jobs/queues/example.queue";
+
+
 export function createApp() {
     const app = express()
     // Trust proxy if running behind load balancers / reverse proxies (common in prod)
@@ -49,6 +52,7 @@ export function createApp() {
     app.use("/health/ready", readyRouter);
     app.use("/auth", authRouter);
     app.use("/uploads", uploadsRouter);
+
 
     // 404 + error handler
     app.use(notFoundHandler)

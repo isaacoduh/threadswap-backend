@@ -10,7 +10,9 @@
   "scripts": {
     "dev": "nodemon --watch src --ext ts --exec \"ts-node -r tsconfig-paths/register src/server.ts\"",
     "build": "rimraf dist && tsc -p tsconfig.json && tsc-alias -p tsconfig.json",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "worker": "ts-node -r tsconfig-paths/register src/workers/index.ts",
+    "worker:start": "node dist/workers/index.js"
   },
   "devDependencies": {
     "@types/bcrypt": "^6.0.0",
@@ -38,6 +40,8 @@
     "@prisma/adapter-pg": "^7.2.0",
     "@prisma/client": "^7.2.0",
     "bcrypt": "^6.0.0",
+    "bullmq": "^5.66.4",
+    "clear": "^0.1.0",
     "compression": "^1.8.1",
     "connect-redis": "^9.0.0",
     "cors": "^2.8.5",
