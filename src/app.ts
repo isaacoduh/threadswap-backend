@@ -3,11 +3,14 @@ import cors from "cors"
 import helmet from "helmet"
 import compression from "compression"
 import morgan from "morgan"
+import { env } from "./common/config/env"
 import {notFoundHandler, errorHandler} from "@/middleware/error.middleware";
 import { sessionMiddleware } from "./middleware/session.middleware"
 
 import {healthRouter} from "@/routes/health.routes";
 import {readyRouter} from "@/routes/ready.routes";
+
+import { apiV1Router } from "./routes/api/v1"
 
 import {authRouter} from "@/modules/auth/routes/auth.routes"
 import { uploadsRouter } from "./modules/uploads/routes/uploads.routes"
@@ -24,7 +27,7 @@ export function createApp() {
 
     // CORS
     // In production, lock down origin(s) via CORS_ORIGIN env: "https://a.com,https://b.com"
-    const corsOrigin = process.env.CORS_ORIGIN?.split(",").map(
+    const corsOrigin = env.CORS_ORIGIN?.split(",").map(
         s =>s.trim()
     ).filter(Boolean);
 
@@ -43,13 +46,12 @@ export function createApp() {
 
     // HTTP request logging
     // use "combined" in production for richer logs
-    app.use(morgan(process.env.NODE_ENV === "production" ? "combined" : "dev"));
+    app.use(morgan(env.NODE_ENV === "production" ? "combined" : "dev"));
 
     // routes
     app.use("/health", healthRouter);
     app.use("/health/ready", readyRouter);
-    app.use("/auth", authRouter);
-    app.use("/uploads", uploadsRouter);
+    app.use("/api/v1", apiV1Router)
 
 
     // 404 + error handler

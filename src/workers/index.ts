@@ -1,5 +1,5 @@
 import "dotenv/config"
-import { startExampleWorker } from "@/modules/jobs/jobs/example.worker"
+import { startExampleWorker } from "@/modules/jobs/workers/example.worker"
 
 async function main() {
     startExampleWorker();
