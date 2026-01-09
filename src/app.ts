@@ -10,9 +10,7 @@ import {healthRouter} from "@/routes/health.routes";
 import {readyRouter} from "@/routes/ready.routes";
 
 import {authRouter} from "@/modules/auth/routes/auth.routes"
-import { uploadsRouter } from "./modules/uploads/routes/upload.routes"
-
-import { enqueueExampleJob } from "@/modules/jobs/queues/example.queue";
+import { uploadsRouter } from "./modules/uploads/routes/uploads.routes"
 
 
 export function createApp() {

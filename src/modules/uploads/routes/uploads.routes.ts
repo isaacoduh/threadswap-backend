@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { uploadSingle } from "../services/multer.service";
-import { uploadSingleToS3 } from "../controllers/upload.controller";
+import { uploadSingleToS3 } from "../controllers/uploads.controller";
 import { requireAuth } from "@/middleware/auth.middleware";
 
 export const uploadsRouter = Router()
