@@ -1,6 +1,7 @@
 import { prisma } from '@db/prisma'
 import { hashPassword, verifyPassword } from '@modules/auth/services/password.service'
 import { signAcessToken } from '@/modules/auth/services/token.service'
+import { ConflictError, UnauthorizedError } from '@/common/errors/http-errors'
 
 export async function register(emailRaw: string, password: string) {
   const email = emailRaw.trim().toLowerCase()
@@ -17,9 +18,7 @@ export async function register(emailRaw: string, password: string) {
       email,
     },
   })
-  if (existing) {
-    return { status: 400 as const, body: { type: 'conflict', detail: 'Email already registered' } }
-  }
+  if (existing) throw new ConflictError('Email already registered')
 
   const passwordHash = await hashPassword(password)
 
@@ -46,12 +45,7 @@ export async function login(emailRaw: string, password: string) {
   }
 
   const user = await prisma.user.findUnique({ where: { email } })
-  if (!user) {
-    return {
-      status: 401 as const,
-      body: { type: 'auth_error', detail: 'Invalid credentials' },
-    }
-  }
+  if (!user) throw new UnauthorizedError('Invalid credentials')
 
   const ok = await verifyPassword(password, user.passwordHash)
   if (!ok) {

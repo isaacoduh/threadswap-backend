@@ -2,14 +2,12 @@ import type { Request, Response } from 'express'
 import * as AuthService from '../services/auth.service'
 import { prisma } from '@db/prisma'
 import type { AuthenticatedRequest } from '@/middleware/auth.middleware'
+import { asyncHandler } from '@/common/http/async-handler'
 
-export async function register(req: Request, res: Response) {
-  const email = String(req.body?.email ?? '')
-  const password = String(req.body?.password ?? '')
-
-  const result = await AuthService.register(email, password)
-  return res.status(result.status).json(result.body)
-}
+export const register = asyncHandler(async (req, res) => {
+  const result = await AuthService.register(req.body.email, req.body.password)
+  res.status(result.status).json(result.body)
+})
 
 export async function login(req: Request, res: Response) {
   const email = String(req.body?.email ?? '')
