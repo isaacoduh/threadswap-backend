@@ -6,6 +6,8 @@ import morgan from 'morgan'
 import { env } from './common/config/env'
 import { notFoundHandler, errorHandler } from '@/middleware/error.middleware'
 import { sessionMiddleware } from './middleware/session.middleware'
+import { requestIdMiddleware } from './middleware/request-id.middleware'
+import { httpLoggerMiddleware } from './middleware/http-logger.middleware'
 
 import { healthRouter } from '@/routes/health.routes'
 import { readyRouter } from '@/routes/ready.routes'
@@ -20,7 +22,7 @@ export function createApp() {
   // Trust proxy if running behind load balancers / reverse proxies (common in prod)
   // Set via env if you prefer; this is safe default for cloud deployments.
   app.set('trust proxy', 1)
-
+  app.use(requestIdMiddleware)
   // security headers
   app.use(helmet())
 
@@ -47,8 +49,8 @@ export function createApp() {
 
   // HTTP request logging
   // use "combined" in production for richer logs
-  app.use(morgan(env.NODE_ENV === 'production' ? 'combined' : 'dev'))
 
+  app.use(httpLoggerMiddleware)
   // routes
   app.use('/health', healthRouter)
   app.use('/health/ready', readyRouter)
