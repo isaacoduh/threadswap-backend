@@ -27,7 +27,8 @@
     "format:check": "prettier --check .",
     "prepare": "husky",
     "test": "jest --runInBand",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "test:listings": "jest src/modules/listings/__tests__/listings.int.test.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
@@ -44,6 +45,9 @@
     "@types/node": "^22.19.5",
     "@types/nodemailer": "^7.0.5",
     "@types/supertest": "^6.0.3",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.8",
+    "dotenv-cli": "^11.0.0",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "husky": "^9.1.7",
@@ -82,10 +86,12 @@
     "morgan": "^1.10.1",
     "multer": "^2.0.2",
     "nodemailer": "^7.0.12",
-    "pg": "^8.16.3",
+    "pg": "^8.18.0",
     "prisma": "^7.2.0",
     "redis": "^5.10.0",
     "socket.io": "^4.8.3",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
     "winston": "^3.19.0",
     "zod": "^4.3.5"
   }

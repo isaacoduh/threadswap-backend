@@ -16,6 +16,7 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
+    "removeComments": false,
 
     "baseUrl": ".",
     "paths": {

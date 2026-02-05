@@ -1,7 +1,7 @@
 import multer from 'multer'
 import os from 'os'
 import path from 'path'
-import type { Request } from 'express'
+import type { Request, Response, NextFunction } from 'express'
 
 const MAX_FILE_SIZE_BYTES = Number(process.env.MAX_UPLOAD_BYTES ?? 10 * 1024 * 1024) // 10MB default
 const LISTING_MAX_FILE_SIZE = Number(process.env.MAX_FILE_SIZE) || 5 * 1024 * 1024 // 5MB default
@@ -41,10 +41,21 @@ export const uploadSingle = multer({
 }).single('file')
 
 export const uploadListingImages = multer({
-  storage: multer.memoryStorage(),
-  limits: {
-    fileSize: LISTING_MAX_FILE_SIZE,
-    files: LISTING_MAX_FILES,
-  },
+  storage, // <-- use disk storage, not memoryStorage
+  limits: { fileSize: LISTING_MAX_FILE_SIZE, files: LISTING_MAX_FILES },
   fileFilter: listingImageFileFilter,
 }).array('images', LISTING_MAX_FILES)
+
+export function handleMulterError(err: unknown, _req: Request, res: Response, next: NextFunction) {
+  if (!err) return next()
+
+  if (err instanceof multer.MulterError) {
+    return res.status(400).json({ type: 'upload_error', detail: err.message })
+  }
+
+  if (err instanceof Error) {
+    return res.status(400).json({ type: 'upload_error', detail: err.message })
+  }
+
+  return res.status(400).json({ type: 'upload_error', detail: 'Upload failed' })
+}

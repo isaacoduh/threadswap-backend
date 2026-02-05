@@ -8,7 +8,8 @@ import { notFoundHandler, errorHandler } from '@/middleware/error.middleware'
 import { sessionMiddleware } from './middleware/session.middleware'
 import { requestIdMiddleware } from './middleware/request-id.middleware'
 import { httpLoggerMiddleware } from './middleware/http-logger.middleware'
-
+import swaggerUi from 'swagger-ui-express'
+import { swaggerSpec } from '@/docs/swagger'
 import { healthRouter } from '@/routes/health.routes'
 import { readyRouter } from '@/routes/ready.routes'
 
@@ -55,6 +56,17 @@ export function createApp() {
   app.use('/health', healthRouter)
   app.use('/health/ready', readyRouter)
   app.use('/api/v1', apiV1Router)
+
+  app.use(
+    '/api/docs',
+    swaggerUi.serve,
+    swaggerUi.setup(swaggerSpec, {
+      explorer: true,
+    })
+  )
+
+  // optional: raw json spec
+  app.get('/api/docs.json', (_req, res) => res.json(swaggerSpec))
 
   // 404 + error handler
   app.use(notFoundHandler)
