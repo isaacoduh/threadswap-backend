@@ -7,6 +7,7 @@ const MAX_FILE_SIZE_BYTES = Number(process.env.MAX_UPLOAD_BYTES ?? 10 * 1024 * 1
 const LISTING_MAX_FILE_SIZE = Number(process.env.MAX_FILE_SIZE) || 5 * 1024 * 1024 // 5MB default
 
 const LISTING_MAX_FILES = Number(process.env.MAX_FILES_PER_LISTING) || 8
+const AVATAR_MAX_FILE_SIZE = Number(process.env.MAX_AVATAR_FILE_SIZE) || 3 * 1024 * 1024
 
 const storage = multer.diskStorage({
   destination: (_req, _file, cb) => cb(null, os.tmpdir()),
@@ -45,6 +46,18 @@ export const uploadListingImages = multer({
   limits: { fileSize: LISTING_MAX_FILE_SIZE, files: LISTING_MAX_FILES },
   fileFilter: listingImageFileFilter,
 }).array('images', LISTING_MAX_FILES)
+
+const avatarImageFileFilter: multer.Options['fileFilter'] = (_req, file, cb) => {
+  const allowed = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp']
+  if (allowed.includes(file.mimetype)) return cb(null, true)
+  cb(new Error('Invalid file type. Only JPEG, PNG, and WebP images are allowed.'))
+}
+
+export const uploadAvatarImage = multer({
+  storage, // disk storage -> uploads to os.tmpdir()
+  limits: { fileSize: AVATAR_MAX_FILE_SIZE, files: 1 },
+  fileFilter: avatarImageFileFilter,
+}).single('avatar')
 
 export function handleMulterError(err: unknown, _req: Request, res: Response, next: NextFunction) {
   if (!err) return next()

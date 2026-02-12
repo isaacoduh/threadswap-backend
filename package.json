@@ -28,7 +28,8 @@
     "prepare": "husky",
     "test": "jest --runInBand",
     "test:watch": "jest --watch",
-    "test:listings": "jest src/modules/listings/__tests__/listings.int.test.ts"
+    "test:listings": "jest src/modules/listings/__tests__/listings.int.test.ts",
+    "test:users": "jest src/modules/users/__tests__/users.int.test.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
