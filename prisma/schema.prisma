@@ -22,11 +22,11 @@ model User {
   displayName String?
   avatarUrl   String?
 
-  bio String? @db.Text
+  bio     String? @db.Text
   socials Json? // {website, instagram, twitter, tiktok, youtube}
 
   avatarBucket String?
-  avatarKey String?
+  avatarKey    String?
 
   // payments (Optional): 
   stripeAccountId String? @unique
@@ -36,11 +36,10 @@ model User {
 
   emailVerifiedAt DateTime?
 
-
-  passwordResetTokens PasswordResetToken[]
+  passwordResetTokens     PasswordResetToken[]
   emailVerificationTokens EmailVerificationToken[]
 
-  listings         Listing[]      @relation("UserListings")
+  listings             Listing[]      @relation("UserListings")
   messagesSent         Message[]      @relation("UserMessagesSent")
   conversationsAsUser1 Conversation[] @relation("ConversationUser1")
   conversationsAsUser2 Conversation[] @relation("ConversationUser2")
@@ -126,12 +125,12 @@ model Listing {
   category    Category
   condition   Condition
   size        String?
-  price       Decimal @db.Decimal(12, 2)
-  currency    String  @default("GBP")
+  price       Decimal   @db.Decimal(12, 2)
+  currency    String    @default("GBP")
 
-  status ListingStatus @default(DRAFT)
-  images String[]      @default([])
-  viewCount Int @default(0)
+  status    ListingStatus @default(DRAFT)
+  images    String[]      @default([])
+  viewCount Int           @default(0)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

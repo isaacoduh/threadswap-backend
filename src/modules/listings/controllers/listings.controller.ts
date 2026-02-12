@@ -1,5 +1,5 @@
 import type { Request, Response } from 'express'
-import type { ListingStatus } from '@prisma/client'
+import type { ListingStatus, Condition, Category } from '@prisma/client'
 
 import * as ListingService from '@/modules/listings/services/listings.service'
 
@@ -25,8 +25,8 @@ export const createListing = async (req: Request, res: Response) => {
       title: String(req.body.title ?? ''),
       description: String(req.body.description ?? ''),
       brand: String(req.body.brand ?? ''),
-      category: String(req.body.category ?? ''),
-      condition: String(req.body.condition ?? ''),
+      category: String(req.body.category ?? '') as Category,
+      condition: String(req.body.condition ?? '') as Condition,
       size: req.body.size ? String(req.body.size) : null,
       price: req.body.price,
       currency: req.body.currency ? String(req.body.currency) : 'GBP',

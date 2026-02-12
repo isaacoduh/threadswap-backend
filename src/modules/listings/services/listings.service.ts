@@ -2,6 +2,7 @@
 import crypto from 'crypto'
 import path from 'path'
 import fs from 'fs/promises'
+import type { Category, Condition } from '@prisma/client';
 import { ListingStatus, TransactionStatus, Prisma } from '@prisma/client'
 import { prisma } from '@/db/prisma'
 
@@ -22,8 +23,8 @@ export type CreateListingInput = {
   title: string
   description: string
   brand: string
-  category: string
-  condition: string
+  category: Category
+  condition: Condition
   size?: string | null
   price: string | number
   currency?: string | null
